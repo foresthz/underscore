@@ -15,9 +15,11 @@
   var previousUnderscore = root._;
 
   // Save bytes in the minified (but not gzipped) version:
+  // 指向prototype对象
   var ArrayProto = Array.prototype, ObjProto = Object.prototype, FuncProto = Function.prototype;
 
   // Create quick reference variables for speed access to core prototypes.
+  // Quick Reference如何和下划线联系起来的?
   var
     push             = ArrayProto.push,
     slice            = ArrayProto.slice,
@@ -33,6 +35,7 @@
     nativeBind         = FuncProto.bind;
 
   // Create a safe reference to the Underscore object for use below.
+  // underscore是一个函数,obj继承了_?怎么用上instanceof了?
   var _ = function(obj) {
     if (obj instanceof _) return obj;
     if (!(this instanceof _)) return new _(obj);
